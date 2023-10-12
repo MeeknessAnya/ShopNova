@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 import ProfileTabs from "../components/profileComponents/ProfileTabs";
-import { getUserDetails } from "../Redux/Actions/userActions";
+// import { getUserDetails } from "../Redux/Actions/userActions";
 import Orders from "./../components/profileComponents/Orders";
 import moment from "moment";
-import { listMyOrders } from "../Redux/Actions/OrderActions";
+// import { listMyOrders } from "../Redux/Actions/OrderActions";
 
 const ProfileScreen = () => {
   window.scrollTo(0, 0);

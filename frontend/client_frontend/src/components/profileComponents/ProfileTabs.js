@@ -4,7 +4,7 @@ import Message from "../LoadingError/Error";
 import Toast from "./../LoadingError/Toast";
 import Loading from "./../LoadingError/Loading";
 import { toast } from "react-toastify";
-import { updateUserProfile } from "../../Redux/Actions/userActions";
+// import { updateUserProfile } from "../../Redux/Actions/userActions";
 
 const ProfileTabs = () => {
   const [name, setName] = useState("");

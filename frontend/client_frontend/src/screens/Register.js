@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Message from "../components/LoadingError/Error";
 import Loading from "../components/LoadingError/Loading";
-import { register } from "../Redux/Actions/userActions";
+// import { register } from "../Redux/Actions/userActions";
 import Header from "./../components/Header";
 
 const Register = ({ location, history }) => {

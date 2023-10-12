@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { savePaymentMethod } from "../Redux/Actions/cartActions";
+// import { savePaymentMethod } from "../Redux/Actions/cartActions";
 import Header from "./../components/Header";
 
 const PaymentScreen = ({ history }) => {
