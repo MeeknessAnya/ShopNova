@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Header from "./../components/Header";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-// import { addToCart, removefromcart } from "./../Redux/Actions/cartActions";
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removefromcart } from '../Redux/Actions/CartActions';
 
 const CartScreen = ({ match, location, history }) => {
   window.scrollTo(0, 0);
@@ -13,16 +13,16 @@ const CartScreen = ({ match, location, history }) => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  const total = cartItems.reduce((a, i) => a + i.qty * i.price, 0).toFixed(2);
+  const total = cartItems.reduce((a, i) => a + i.price, 0).toFixed(2);
 
   useEffect(() => {
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, qty]);
-
+  
   const checkOutHandler = () => {
-    history.push("/login?redirect=shipping");
+    history.pish("/login?redirect=shipping");
   };
 
   const removeFromCartHandle = (id) => {
@@ -34,7 +34,7 @@ const CartScreen = ({ match, location, history }) => {
       {/* Cart */}
       <div className="container">
         {cartItems.length === 0 ? (
-          <div className=" alert alert-info text-center mt-3">
+            <div className=" alert alert-info text-center mt-3">
             Your cart is empty
             <Link
               className="btn btn-success mx-5 px-5 py-3"
@@ -50,14 +50,14 @@ const CartScreen = ({ match, location, history }) => {
           <>
             <div className=" alert alert-info text-center mt-3">
               Total Cart Products
-              <Link className="text-success mx-2" to="/cart">
-                ({cartItems.length})
+                <Link className="text-success mx-2" to="/cart">
+                  ({cartItems.length})
               </Link>
             </div>
             {/* cartiterm */}
             {cartItems.map((item) => (
               <div className="cart-iterm row">
-                <div
+                <div 
                   onClick={() => removeFromCartHandle(item.product)}
                   className="remove-button d-flex justify-content-center align-items-center"
                 >
@@ -73,17 +73,17 @@ const CartScreen = ({ match, location, history }) => {
                 </div>
                 <div className="cart-qty col-md-2 col-sm-5 mt-md-5 mt-3 mt-md-0 d-flex flex-column justify-content-center">
                   <h6>QUANTITY</h6>
-                  <select
-                    value={item.qty}
+                  <select 
+                    value={item.qty} 
                     onChange={(e) =>
                       dispatch(addToCart(item.product, Number(e.target.value)))
                     }
                   >
                     {[...Array(item.countInStock).keys()].map((x) => (
-                      <option key={x + 1} value={x + 1}>
-                        {x + 1}
-                      </option>
-                    ))}
+                        <option key={x + 1} value={x + 1}>
+                          {x + 1}
+                        </option>
+                      ))}
                   </select>
                 </div>
                 <div className="cart-price mt-3 mt-md-0 col-md-2 align-items-sm-end align-items-start  d-flex flex-column justify-content-center col-sm-7">
@@ -91,8 +91,8 @@ const CartScreen = ({ match, location, history }) => {
                   <h4>${item.price}</h4>
                 </div>
               </div>
-            ))}
-
+              ))}
+            
             {/* End of cart iterms */}
             <div className="total">
               <span className="sub">total:</span>
@@ -107,13 +107,13 @@ const CartScreen = ({ match, location, history }) => {
                 <div className="col-md-6 d-flex justify-content-md-end mt-3 mt-md-0">
                   <button onClick={checkOutHandler}>Checkout</button>
                 </div>
-              )}
+                )} 
             </div>
           </>
         )}
       </div>
     </>
-  );
+  ); 
 };
 
 export default CartScreen;

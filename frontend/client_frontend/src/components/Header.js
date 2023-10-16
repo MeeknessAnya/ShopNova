@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 // import { logout } from "../Redux/Actions/userActions";
+import { useDispatch, useSelector } from 'react-redux';
 
 const Header = () => {
   const [keyword, setKeyword] = useState();
@@ -87,7 +87,7 @@ const Header = () => {
                         <Link
                           className="dropdown-item"
                           to="#"
-                          onClick={logoutHandler}
+                          // onClick={logoutHandler}
                         >
                           Logout
                         </Link>
