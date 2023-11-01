@@ -65,9 +65,9 @@ const ShopSection = () => {
                     
                 {/* Pagination */}
                 <Pagination/>
-                  // pages={pages}
+                  {/* // pages={pages}
                   // page={page}
-                  // keyword={keyword ? keyword : ""}
+                  // keyword={keyword ? keyword : ""} */}
               </div>
             </div>
           </div>

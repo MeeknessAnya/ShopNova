@@ -7,7 +7,6 @@ import {
   PRODUCT_LIST_SUCCESS 
 } from "../Constants/ProductConstants";
 
-
 // PRODUCT LIST
 export const productListReducer = (state = { products:[]}, action) => {
   switch (action.type) {
