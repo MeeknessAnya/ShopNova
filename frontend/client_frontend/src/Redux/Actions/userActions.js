@@ -2,7 +2,7 @@ import {
     USER_LOGIN_FAIL,
     USER_LOGIN_REQUEST,
     USER_LOGIN_SUCCESS,
-    USER_LOGOUT,
+    // USER_LOGOUT,
 }   from "../Constants/UserConstants";
 import axios from 'axios';
 
@@ -36,9 +36,9 @@ export const login = (email, password) => async (dispatch) => {
     }
 };
 
-// LOGIN
-export const logout = () => (dispatch) => {
-    localStorage.removeItem("userInfo");
-    dispatch({ type: USER_LOGOUT });
-    document.location.href = "/login";
-};
+// // LOGOUT
+// export const logout = () => (dispatch) => {
+//     localStorage.removeItem("userInfo");
+//     dispatch({ type: USER_LOGOUT });
+//     document.location.href = "/login";
+// };
