@@ -11,6 +11,8 @@ const ShopSection = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   const { loading, error, products } = productList;
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const ShopSection = () => {
                   </div>
                 ) : error ? (
                   <Message varient="alert-danger">{error}</Message>
-                ) : (
+                ) : !userInfo ? (<></>) : (
                   <>
                     {products.map((product) => (
                       <div

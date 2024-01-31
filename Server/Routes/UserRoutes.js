@@ -86,4 +86,33 @@ userRouter.get(
     })
 );
 
+// UPDATE PROFILE
+userRouter.put(
+    "/profile", 
+    protect,
+    asyncHandler(async(req,res) => {
+        const user = await User.findById(req.user._id);
+
+        if (user) {
+            user.name = req.body.name || user.name;
+            user.email = req.body.email || user.email;
+            if (req.body.password) {
+                user.passwword = req.body.password;
+            } 
+            const updatedUser = await user.save();
+            res.json({
+                _id: updatedUser._id,
+                name: updatedUser.name,
+                email: updatedUser.email,
+                isMeeknessanyaeche2023: updatedUser.isMeeknessanyaeche2023,
+                createdAt: updatedUser.createdAt,
+                token: generateToken(updatedUser._id),
+            });
+        } else {
+            res.status(404);
+            throw new Error("User not found");      
+        }
+    })
+);
+
 export default userRouter;

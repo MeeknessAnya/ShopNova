@@ -23,7 +23,7 @@ const products = [
   },
   {
     _id: "3",
-    name: "Sesame Street Unisex-Child ELMO Puppet Slipper",
+    name: "Sesame Street Unisex-Child ELMO Puppet Heel",
     image: "/images/4.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -34,7 +34,7 @@ const products = [
   },
   {
     _id: "4",
-    name: "Lace Casual Boots For Boys & Girls  (Tan)",
+    name: "Lace Casual Boots For Boys & Girls  (Red)",
     image: "/images/3.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -45,7 +45,7 @@ const products = [
   },
   {
     _id: "5",
-    name: "Lace Walking Shoes For Boys & Girls  (Pink)",
+    name: "Crocs For Boys & Girls  (Blue)",
     image: "/images/2.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -56,7 +56,7 @@ const products = [
   },
   {
     _id: "6",
-    name: "Women Red Heels Sandal",
+    name: "Women Black Heels Sandal",
     image: "/images/1.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -65,6 +65,17 @@ const products = [
     rating: 0,
     numReviews: 0,
   },
+  // {
+  //   _id: "7",
+  //   name: "Women Black Heels Sandal",
+  //   image: "/images/1.png",
+  //   description:
+  //     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+  //   price: 29,
+  //   countInStock: 0,
+  //   rating: 0,
+  //   numReviews: 0,
+  // },
 ];
 
 export default products;

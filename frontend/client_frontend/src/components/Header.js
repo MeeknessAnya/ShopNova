@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-// import { logout } from "../Redux/Actions/userActions";
 import { useDispatch, useSelector } from 'react-redux';
+import { logout } from "../Redux/Actions/userActions";
 
 const Header = () => {
   const [keyword, setKeyword] = useState();
@@ -13,9 +13,9 @@ const Header = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  // const logoutHandler = () => {
-  //   dispatch(logout());
-  // };
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -32,8 +32,8 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 d-flex align-items-center display-none">
-              <p>+615 000 1111</p>
-              <p>shopnova.customercare@gmail.com</p>
+              <p>+1-615-000-111</p>
+              <p>shopnova.info@gmail.com</p>
             </div>
             <div className=" col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex align-items-center">
               <Link to="">
@@ -87,7 +87,7 @@ const Header = () => {
                         <Link
                           className="dropdown-item"
                           to="#"
-                          // onClick={logoutHandler}
+                          onClick={logoutHandler}
                         >
                           Logout
                         </Link>
@@ -177,9 +177,9 @@ const Header = () => {
                       </Link>
 
                       <Link
-                        // className="dropdown-item"
-                        // to="#"
-                        // onClick={logoutHandler}
+                        className="dropdown-item"
+                        to="#"
+                        onClick={logoutHandler}
                       >
                         Logout
                       </Link>
