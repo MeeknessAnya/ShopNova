@@ -10,14 +10,14 @@ const ProfileTabs = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmsPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const toastId = React.useRef(null)
 
         const Toastobjects = {
         pauseOnFocusLoss: false,
         draggable: false,
         pauseOnHover: false,
-        autoClose: 2000
+        autoClose: 2000,
     }
     const dispatch = useDispatch()
 
@@ -25,7 +25,7 @@ const ProfileTabs = () => {
     const { loading, error, user } = userDetails;
 
     const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
-    const { loading : updateLoading } = userUpdateProfile;
+    const { loading: updateLoading } = userUpdateProfile;
     
     useEffect(()=>{
         if (user) {
@@ -35,11 +35,11 @@ const ProfileTabs = () => {
     }, [dispatch, user]);
 
     const submitHandler = (e) => {
-        e.prevenyDefault();
+        e.preventDefault();
         // Password match
         if (password !== confirmPassword) {
             if (!toast.isActive(toastId.current)) {
-                toastId.current = toast.error("Password does not match",Toastobjects);
+                toastId.current = toast.error("Passwords does not match",Toastobjects);
             }
         } else{
             dispatch(updateUserProfile({id:user._id,name,email,password}));
@@ -101,7 +101,7 @@ const ProfileTabs = () => {
                             required
                             value={confirmPassword} 
                             // required
-                            onChange={(e) => setConfirmsPassword(e.target.value)}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                         />
                     </div>
                 </div>
