@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="card-name">
           <img
             alt="paypal"
-            src="https://pbs.twimg.com/media/EfTZlEnWAAMn1lX.png"
+            src="https://ecrlib.org/wp-content/uploads/2023/03/PayPal-Logo.png"
           />
         </div>
         <div className="card-name">
@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="card-name">
           <img
             alt="discover"
-            src="https://icons-for-free.com/iconfiles/png/512/cash+checkout+discover+network+online+shopping+payment+method-1320191225548835050.png"
+            src="https://www.pymnts.com/wp-content/uploads/2014/03/Discover-logo-e1416429693676.jpg"
           />
         </div>
       </div>
