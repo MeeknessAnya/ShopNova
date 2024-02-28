@@ -13,7 +13,7 @@ const CartScreen = ({ match, location, history }) => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  const total = cartItems.reduce((a, i) => a + i.price, 0).toFixed(2);
+  const total = cartItems.reduce((a, i) => a + i.qty * i.price, 0).toFixed(2);
 
   useEffect(() => {
     if (productId) {
@@ -22,7 +22,7 @@ const CartScreen = ({ match, location, history }) => {
   }, [dispatch, productId, qty]);
   
   const checkOutHandler = () => {
-    history.pish("/login?redirect=shipping");
+    history.push("/login?redirect=shipping");
   };
 
   const removeFromCartHandle = (id) => {

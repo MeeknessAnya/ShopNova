@@ -18,7 +18,7 @@ userRouter.post(
                 _id: user._id,
                 name: user.name,
                 email: user.email,
-                isMeeknessanyaeche2023: user.isMeeknessanyaeche2023,
+                isAdmin: user.isAdmin,
                 token: generateToken(user._id),
                 createdAt: user.createdAt,
             });
@@ -53,7 +53,7 @@ userRouter.post(
                 _id: user._id,
                 name: user.name,
                 email: user.email,
-                isMeeknessanyaeche2023: user.isMeeknessanyaeche2023,
+                isAdmin: user.isAdmin,
                 token: generateToken(user._id),
             });
         }
@@ -76,7 +76,7 @@ userRouter.get(
                 _id: user._id,
                 name: user.name,
                 email: user.email,
-                isMeeknessanyaeche2023: user.isMeeknessanyaeche2023,
+                isAdmin: user.isAdmin,
                 createdAt: user.createdAt,
             })
         } else {
@@ -97,14 +97,14 @@ userRouter.put(
             user.name = req.body.name || user.name;
             user.email = req.body.email || user.email;
             if (req.body.password) {
-                user.passwword = req.body.password;
+                user.password = req.body.password;
             } 
             const updatedUser = await user.save();
             res.json({
                 _id: updatedUser._id,
                 name: updatedUser.name,
                 email: updatedUser.email,
-                isMeeknessanyaeche2023: updatedUser.isMeeknessanyaeche2023,
+                isAdmin: updatedUser.isAdmin,
                 createdAt: updatedUser.createdAt,
                 token: generateToken(updatedUser._id),
             });
