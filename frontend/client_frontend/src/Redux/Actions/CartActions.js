@@ -22,7 +22,7 @@ export const addToCart = (id, qty) => async(dispatch,getState) => {
     },
   });
   
-  // localStorage.setItems("cartItems", JSON.stringify(getState().cart.cartItems));
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
 // REMOVE PRODUCT FROM CART
@@ -32,7 +32,7 @@ export const removefromcart = (id) => (dispatch, getState) => {
     payload: id,
   });
 
-  //localStorage.setItems("cartItems", JSON.stringify(getState().cart.cartItems));
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
 // SAVE SHIPPING ADDRESS
@@ -42,7 +42,7 @@ export const saveShippingAddress = (data) => (dispatch) => {
     payload: data,
   });
 
-  //localStorage.setItems("shippingAddress", JSON.stringify(data));
+  localStorage.setItem("shippingAddress", JSON.stringify(data));
 };
 
 // SAVE PAYMENT METHOD
@@ -52,5 +52,5 @@ export const savePaymentMethod = (data) => (dispatch) => {
     payload: data,
   });
 
-  //localStorage.setItems("paymentMethod", JSON.stringify(data));
+  localStorage.setItem("paymentMethod", JSON.stringify(data));
 };
