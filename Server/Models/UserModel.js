@@ -1,6 +1,17 @@
 import  mongoose  from 'mongoose';
 import bcrypt from 'bcryptjs';
 
+
+// const addressSchema = new mongoose.Schema({
+//   street: { type: String, required: true },
+//   city: { type: String, required: true },
+//   state: { type: String, required: true },
+//   postalCode: { type: String, required: true },
+//   country: { type: String, required: true },
+// }, {
+//   timestamps: true
+// });
+
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -21,11 +32,10 @@ const userSchema = mongoose.Schema(
       require: true,
       default: false,
     },
-  },
-  {
+    // shippingAddresses: [addressSchema]
+  }, {
     timestamps: true,
-  }
-);
+  });
 
 // Login
 userSchema.methods.matchPassword = async function (enterPassword) {

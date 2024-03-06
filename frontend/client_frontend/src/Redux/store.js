@@ -12,15 +12,17 @@ import {
   userRegisterReducer,
   userUpdateProfileReducer,
 } from "./Reducers/userReducers";
+import { orderCreateReducer } from "./Reducers/OrderReducers";
 
 const reducer = combineReducers({
-  productList : productListReducer,
-  productDetails : productDetailsReducer,
-  cart : cartReducer,
-  userLogin : userLoginReducer,
-  userRegister : userRegisterReducer,
-  userDetails : userDetailsReducer,
-  userUpdateProfile : userUpdateProfileReducer,
+  productList: productListReducer,
+  productDetails: productDetailsReducer,
+  cart: cartReducer,
+  userLogin: userLoginReducer,
+  userRegister: userRegisterReducer,
+  userDetails: userDetailsReducer,
+  userUpdateProfile: userUpdateProfileReducer,
+  orderCreate: orderCreateReducer,
 });
 
 const cartItemsFromLocalStorage = localStorage.getItem("cartItem")
@@ -44,6 +46,7 @@ const initialState = {
   },
   userLogin:{ userInfo:userInfoFromLocalStorage },
 };
+
 
 const middleware = [thunk];
 
