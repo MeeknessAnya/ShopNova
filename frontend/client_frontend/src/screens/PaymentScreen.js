@@ -13,7 +13,7 @@ const PaymentScreen = ({ history }) => {
     history.push("/shipping");
   }
 
-  const [paymentMethod, setPaymentMethod] = useState("PayPal");
+  const [paymentMethod, setPaymentMethod] = useState();
 
   const dispatch = useDispatch();
 
@@ -22,6 +22,11 @@ const PaymentScreen = ({ history }) => {
     dispatch(savePaymentMethod(paymentMethod));
     history.push("/placeorder");
   };
+
+  const handleRadioChange = (event) => {
+    setPaymentMethod(event.target.value);
+  };
+
   return (
     <>
       <Header />
@@ -36,14 +41,14 @@ const PaymentScreen = ({ history }) => {
               <input
                 className="form-check-input"
                 type="radio"
-                value={paymentMethod}
-                onChange={(e) => setPaymentMethod(e.target.value)}
+                value="paypal"
+                onChange={handleRadioChange}
               />
               <label className="form-check-label">PayPal or Credit Card</label>
             </div>
           </div>
 
-          <button type="submit">Continue</button>
+          <button type="submit" disabled={!paymentMethod}>Continue</button>
         </form>
       </div>
     </>
