@@ -7,7 +7,8 @@ import { listProduct} from '../../Redux/Actions/ProductActions';
 import Loading from "../LoadingError/Loading";
 import Message from "../LoadingError/Error";
 
-const ShopSection = () => {
+const ShopSection = (props) => {
+  const {keyword} = props
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
@@ -16,8 +17,8 @@ const ShopSection = () => {
   const { loading, error, products } = productList;
 
   useEffect(() => {
-    dispatch(listProduct());
-  }, [dispatch]);
+    dispatch(listProduct(keyword));
+  }, [dispatch, keyword]);
   return (
     <>
       <div className="container">
