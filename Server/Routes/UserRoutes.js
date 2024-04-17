@@ -2,10 +2,11 @@ import  express  from 'express';
 import asyncHandler from "express-async-handler";
 import User from '../Models/UserModel.js';
 import generateToken from '../utils/generateToken.js';
-import protect from '../Middleware/AuthMiddleware.js';
-
+import { protect, admin } from '../Middleware/AuthMiddleware.js';
 
 const userRouter = express.Router();
+
+
 // LOGIN
 userRouter.post(
     "/login", 
@@ -115,33 +116,15 @@ userRouter.put(
     })
 );
 
-// userRouter.post(
-//     "/shipping", 
-//     authenticate, 
-//     async (req, res) => {
-//     const userId = req.user._id; 
-//     const { address } = req.body; 
+// GET ALL USER ADMIN
+userRouter.get(
+    "/", 
+    protect,
+    admin, 
+    asyncHandler(async (req, res) => {
+        const users = await User.find({});
+        res.json(users);
+    })
+);
   
-//     try {
-//       const user = await User.findById(userId);
-  
-//       if (user) {
-//         user.shippingAddresses.push(address);
-  
-//         // Save the updated user document
-//         await user.save();
-  
-//         res.status(201).json({
-//           message: 'Shipping address added successfully',
-//           address: user.shippingAddresses[user.shippingAddresses.length - 1], 
-//         });
-//       } else {
-//         res.status(404).json({ message: 'User not found' });
-//       }
-//     } catch (error) {
-//       res.status(500).json({ message: 'Error adding shipping address', error: error.message });
-//     }
-//   });
-  
-
 export default userRouter;

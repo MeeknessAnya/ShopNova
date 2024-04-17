@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 import { useDispatch } from 'react-redux';
+import { logout } from "../Redux/Actions/userActions";
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -27,6 +28,7 @@ const Header = () => {
   const logoutHandler = () => {
     dispatch(logout())
   }
+
 
   return (
     <header className="main-header navbar">
