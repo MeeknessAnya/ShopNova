@@ -109,7 +109,7 @@ const EditProductMain = (props) => {
                           className="form-control"
                           id="product_title"
                           required
-                          varient={name}
+                          value={name}
                           onChange={(e) => setName(e.target.value)}
                         />
                       </div>
@@ -123,7 +123,7 @@ const EditProductMain = (props) => {
                           className="form-control"
                           id="product_price"
                           required
-                          varient={price}
+                          value={price}
                           onChange={(e) => setPrice(e.target.value)}
                         />
                       </div>
@@ -148,7 +148,7 @@ const EditProductMain = (props) => {
                           className="form-control"
                           rows="7"
                           required
-                          varient={description}
+                          value={description}
                           onChange={(e) => setDescription(e.target.value)}
                         ></textarea>
                       </div>
@@ -157,7 +157,7 @@ const EditProductMain = (props) => {
                         <input
                           className="form-control"
                           type="text"
-                          varient={image}
+                          value={image}
                           required
                           onChange={(e) => setImage(e.target.value)}
                         />

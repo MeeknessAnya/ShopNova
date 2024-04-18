@@ -75,7 +75,7 @@ const submitHandler = (e) => {
                       className="form-control"
                       id="product_title"
                       required
-                      varient={name}
+                      value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
@@ -89,7 +89,7 @@ const submitHandler = (e) => {
                       className="form-control"
                       id="product_price"
                       required
-                      varient={price}
+                      value={price}
                       onChange={(e) => setPrice(e.target.value)}
                     />
                   </div>
@@ -103,7 +103,7 @@ const submitHandler = (e) => {
                       className="form-control"
                       id="product_price"
                       required
-                      varient={countInStock}
+                      value={countInStock}
                       onChange={(e) => setCountInStock(e.target.value)}
                     />
                   </div>
@@ -114,7 +114,7 @@ const submitHandler = (e) => {
                       className="form-control"
                       rows="7"
                       required
-                      varient={description}
+                      value={description}
                       onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
                   </div>
@@ -124,7 +124,7 @@ const submitHandler = (e) => {
                       className="form-control"
                       type="text"
                       placeholder="Enter Image URL"
-                      varient={image}
+                      value={image}
                       required
                       onChange={(e) => setImage(e.target.value)}
                     />
