@@ -1,11 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { PRODUCT_CREATE_RESET } from "../../Redux/Constants/ProductConstants";
+import { createProduct } from "../../Redux/Actions/ProductActions";
+import Toast from "../LoadingError/Toast";
+import Message from '../LoadingError/Error';
+import Loading from '../LoadingError/Loading';
 
+const ToastObjects = {
+  pauseOnFocusLoss: false,
+  draggable: false,
+  pauseOnHover: false,
+  autoClose: 2000,
+};
 const AddProductMain = () => {
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState(0);
+  const [image, setImage] = useState("");
+  const [countInStock, setCountInStock] = useState(0);
+  const [description, setDescription] = useState("");
+
+  const dispatch = useDispatch()
+
+const productCreate = useSelector((state) => state.productCreate);
+const {loading, error, product} = productCreate;
+
+useEffect(() => {
+  if (product) {
+    toast.success("Product Added", ToastObjects);
+    dispatch({type: PRODUCT_CREATE_RESET});
+    setName("");
+    setDescription("");
+    setCountInStock(0);
+    setImage("");
+    setPrice(0);
+  }
+}, [product, dispatch])
+
+const submitHandler = (e) => {
+  e.preventDefault()
+  dispatch(createProduct(name, price, description, image, countInStock))
+}
   return (
     <>
+    <Toast/>
       <section className="content-main" style={{ maxWidth: "1200px" }}>
-        <form>
+        <form onSubmit = {submitHandler}>
           <div className="content-header">
             <Link to="/products" className="btn btn-danger text-white">
               Go to products
@@ -22,6 +63,8 @@ const AddProductMain = () => {
             <div className="col-xl-8 col-lg-8">
               <div className="card mb-4 shadow-sm">
                 <div className="card-body">
+                  {error && <Message varient="aleert-danger">{error}</Message>}
+                  {loading && <Loading/>}
                   <div className="mb-4">
                     <label htmlFor="product_title" className="form-label">
                       Product title
@@ -32,6 +75,8 @@ const AddProductMain = () => {
                       className="form-control"
                       id="product_title"
                       required
+                      varient={name}
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div className="mb-4">
@@ -44,6 +89,8 @@ const AddProductMain = () => {
                       className="form-control"
                       id="product_price"
                       required
+                      varient={price}
+                      onChange={(e) => setPrice(e.target.value)}
                     />
                   </div>
                   <div className="mb-4">
@@ -56,6 +103,8 @@ const AddProductMain = () => {
                       className="form-control"
                       id="product_price"
                       required
+                      varient={countInStock}
+                      onChange={(e) => setCountInStock(e.target.value)}
                     />
                   </div>
                   <div className="mb-4">
@@ -65,6 +114,8 @@ const AddProductMain = () => {
                       className="form-control"
                       rows="7"
                       required
+                      varient={description}
+                      onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
                   </div>
                   <div className="mb-4">
@@ -72,7 +123,10 @@ const AddProductMain = () => {
                     <input
                       className="form-control"
                       type="text"
-                      placeholder="Inter Image URL"
+                      placeholder="Enter Image URL"
+                      varient={image}
+                      required
+                      onChange={(e) => setImage(e.target.value)}
                     />
                     <input className="form-control mt-3" type="file" />
                   </div>

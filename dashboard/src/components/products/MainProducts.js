@@ -6,16 +6,18 @@ import { listProducts } from "../../Redux/Actions/ProductActions";
 import Loading from '../LoadingError/Loading';
 import Message from '../LoadingError/Error';
 
-
 const MainProducts = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
+  const productDelete = useSelector((state) => state.productDelete);
+  const { error:errorDelete, success:successDelete } = productDelete;
+
   useEffect(() => {
     dispatch(listProducts());
-  }, [dispatch]);
+  }, [dispatch, successDelete]);
   return (
     <section className="content-main">
       <div className="content-header">
@@ -56,6 +58,9 @@ const MainProducts = () => {
         </header>
 
         <div className="card-body">
+          {errorDelete && (
+            <Message varient="alert-danger">{errorDelete}</Message>
+          )}
           {loading ? (
             <Loading/>
           ) : error ? (<Message varient="alert-danger">{error}</Message>
